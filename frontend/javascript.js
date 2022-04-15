@@ -22,7 +22,7 @@ request.send()
           console.log(request.status);
           var div = document.createElement("tr");
             var mainContainer = document.getElementById(id);
-          div.innerHTML = "<td>"+query.id+"</td><td><input id='nev"+query.id+"' placeholder='"+query.nev+"' value='"+query.nev+"'/></td><td><input id='email"+query.id+"' placeholder='"+query.email+"' value='"+query.email+"'/></td><td><input id='cim"+query.id+"' placeholder='"+query.cim+"' value='"+query.cim+"'/></td><td><input id='kor"+query.id+"' placeholder='"+query.kor+"' value='"+query.kor+"'/></td><td><input id='kartya"+query.id+"' placeholder='"+query.kartya+"' value='"+query.kartya+"'/></td>"+"<button onclick = 'torol("+query.id+")' type = 'submit' value='Submit'>Delete</button>"+"<button onclick = 'update("+query.id+")'>Update</button>" ;
+          div.innerHTML = "<td>"+query.id+"</td><td><input id='vezetek"+query.id+"' placeholder='"+query.vezetek+"' value='"+query.vezetek+"'/></td><td><input id='kereszt"+query.id+"' placeholder='"+query.kereszt+"' value='"+query.kereszt+"'/></td><td><input id='email"+query.id+"' placeholder='"+query.email+"' value='"+query.email+"'/></td><td><input id='szulev"+query.id+"' placeholder='"+query.szulev+"' value='"+query.szulev+"'/></td><td><input id='osztaly"+query.id+"' placeholder='"+query.osztaly+"' value='"+query.osztaly+"'/></td>"+"<button onclick = 'torol("+query.id+")' type = 'submit' value='Submit'>Törlés</button>"+"<button onclick = 'frissit("+query.id+")'>Frissít</button>" ;
           mainContainer.appendChild(div)
         })
       } else {
@@ -38,10 +38,10 @@ function torol(id){
   navigator.sendBeacon('http://localhost:3000/torol/'+ id);
   console.log(id);
 }
-function update(id){
-  const data = id + ";"+ document.getElementById("nev"+id).value + ";"+ document.getElementById("email"+id).value + ";"+ document.getElementById("cim"+id).value  + ";"+ document.getElementById("kor"+id).value + ";"+ document.getElementById("kartya"+id).value;
+function frissit(id){
+  const data = id + ";"+ document.getElementById("vezetek"+id).value + ";"+ document.getElementById("kereszt"+id).value + ";"+ document.getElementById("email"+id).value  + ";"+ document.getElementById("szulev"+id).value + ";"+ document.getElementById("osztaly"+id).value;
   
-  navigator.sendBeacon('http://localhost:3000/update/'+ data);
+  navigator.sendBeacon('http://localhost:3000/frissit/'+ data);
   console.log(data);
 }
 

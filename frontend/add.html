@@ -9,16 +9,25 @@
     <title>Info</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: black; margin-bottom:20px;" >
+
+          <ul class="navbar-nav" >
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Táblázat</a>
+            </li>
+          </ul>
+        </nav>
+
     <form  method="post">
 <div class="jumbotron text-center">
-    <h2 class="text-light">Szükséges információk</h2>
+    <h2 class="text-light">Diák nyivántartás</h2>
     <table class=" container ">
-        <tr><td style="padding-left: 30%;  ;">Add meg a neved</td><td><input type="text" id="nev" name="nev"></td></tr>
-        <tr><td style="padding-left: 30%; ;">Add meg az email-ed</td><td><input type="email" id="email" name="email"></td></tr>
-        <tr><td style="padding-left: 30%; ;">Add meg a címed</td><td><input type="text" id="cim" name="cim"></td></tr>
-        <tr><td style="padding-left: 30%; ;">Add meg a korod</td><td><input type="text" id="kor" name="kor"></td></tr>
-        <tr><td style="padding-left: 30%; ;">Add meg a bankartyad adatait</td><td><input type="text" id="kartya" name="kartya"></td></tr>
-        <tr><td style="padding-left: 30%; ;"><button onclick="sendPost()" id="sub" type="submit" value="Submit">Add</button></td></tr>
+        <tr><td style="padding-left: 30%;  ;">Adja meg a vezetéknevet:</td><td><input type="text" id="vezetek" name="vezetek"></td></tr>
+        <tr><td style="padding-left: 30%; ;">Adja meg a keresztnevet:</td><td><input type="kereszt" id="kereszt" name="kereszt"></td></tr>
+        <tr><td style="padding-left: 30%; ;">Adja meg az email-t:</td><td><input type="text" id="email" name="email"></td></tr>
+        <tr><td style="padding-left: 30%; ;">Adj meg a születési évet:</td><td><input type="text" id="szulev" name="szulev"></td></tr>
+        <tr><td style="padding-left: 30%; ;">Adj meg a osztályt:</td><td><input type="text" id="osztaly" name="osztaly"></td></tr>
+        <tr><td style="padding-left: 30%; ;"><button onclick="sendPost()" id="sub" type="submit" value="Submit">Hozzáad</button></td></tr>
     </table>
 </div>
 

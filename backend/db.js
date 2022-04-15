@@ -12,5 +12,5 @@ const db = new sqlite3.Database("./adat.db", sqlite3.OPEN_READWRITE, (err) => {
     console.log("connection succesful");
   });
   
-db.run('CREATE TABLE adatok(id INTEGER PRIMARY KEY AUTOINCREMENT, nev TEXT NOT NULL, email TEXT UNIQUE NOT NULL, cim TEXT NOT NULL , kor TEXT NOT NULL, kartya TEXT NOT NULL)');
+db.run('CREATE TABLE adatok(id INTEGER PRIMARY KEY AUTOINCREMENT, vezetek TEXT NOT NULL, kereszt TEXT NOT NULL, email TEXT UNIQUE NOT NULL , szulev TEXT NOT NULL, osztaly TEXT NOT NULL)');
 

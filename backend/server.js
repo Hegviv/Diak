@@ -8,7 +8,7 @@ app.use(cors());
 const db = new sqlite3.Database("./adat.db", sqlite3.OPEN_READWRITE, (err) => {
   if (err) return console.error(err.message);
 
-  console.log("connection succesful");
+  console.log("Sikerült a kapcsolat");
 });
 
 app.get("/view", function (request, response) {
@@ -27,18 +27,18 @@ app.get("/view", function (request, response) {
 app.post('/friss/:param', function (request, response) {
   var data = request.params.param.split(';');
 
-  const sql = "INSERT into adatok (nev, email, cim, kor, kartya) values ('" + data[0] + "', '" + data[1] + "', '" + data[2] + "', '" + data[3] + "', '" + data[4] + "')";
+  const sql = "INSERT into adatok (vezetek, kereszt, email, szulev, osztaly) values ('" + data[0] + "', '" + data[1] + "', '" + data[2] + "', '" + data[3] + "', '" + data[4] + "')";
   console.log(sql);
   db.run(sql);
-  console.log("New data added");
+  console.log("Új adatok hozzáadva");
 });
 
-app.post('/update/:param', function (request, response) {
+app.post('/frissit/:param', function (request, response) {
   var data = request.params.param.split(';');
-  const sql = "UPDATE adatok SET nev='" + data[1] + "', email='" + data[2] + "', cim='" + data[3] + "' , kor='" + data[4] + "', kartya='" + data[5] + "' WHERE id='" + data[0] + "'";
+  const sql = "UPDATE adatok SET vezetek='" + data[1] + "', kereszt='" + data[2] + "', email='" + data[3] + "' , szulev='" + data[4] + "', osztaly='" + data[5] + "' WHERE id='" + data[0] + "'";
   console.log(sql);
   db.run(sql);
-  console.log("Data updated, id: " + data[0]);
+  console.log("adat frissítve, id: " + data[0]);
 
 });
 
@@ -48,7 +48,7 @@ app.post('/torol/:param', function (request, response) {
   const sql = "delete from adatok where id = "+data+"";
   console.log(sql);
   db.run(sql);
-  console.log("data deleted, id: " + data);
+  console.log("adat törölve, id: " + data);
 });
 
 let port = process.env.PORT;
@@ -56,5 +56,5 @@ if (port == null || port == "") {
   port = 3000;
 }
 app.listen(port, function () {
-  console.log("Server started succesfully!");
+  console.log("A szerver sikeresen elindult!");
 });
